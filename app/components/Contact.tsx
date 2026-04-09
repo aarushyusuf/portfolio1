@@ -29,10 +29,10 @@ export default function Contact() {
 
     setStatus("loading");
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formspree.io/f/meepwpkl", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
       });
       if (res.ok) {
         setStatus("success");
