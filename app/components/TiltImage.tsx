@@ -10,6 +10,7 @@ interface TiltImageProps {
   objectPosition?: string;
   objectPositions?: string[];
   interval?: number;
+  active?: boolean;
 }
 
 export default function TiltImage({
@@ -20,6 +21,7 @@ export default function TiltImage({
   objectPosition = "center",
   objectPositions,
   interval = 5000,
+  active = true,
 }: TiltImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const glareRef = useRef<HTMLDivElement>(null);
@@ -30,7 +32,12 @@ export default function TiltImage({
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    if (allImages.length <= 1) return;
+    setIndex(0);
+    setFading(false);
+  }, [active]);
+
+  useEffect(() => {
+    if (allImages.length <= 1 || !active) return;
     const timer = setInterval(() => {
       setFading(true);
       setTimeout(() => {
@@ -39,7 +46,7 @@ export default function TiltImage({
       }, 400);
     }, interval);
     return () => clearInterval(timer);
-  }, [allImages.length, interval]);
+  }, [allImages.length, interval, active]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = containerRef.current;
@@ -138,19 +145,12 @@ export default function TiltImage({
         />
         {allImages.length > 1 && (
           <div style={{
-            position: "absolute",
-            bottom: 10,
-            left: "50%",
-            transform: "translateX(-50%)",
-            display: "flex",
-            gap: 6,
-            pointerEvents: "none",
+            position: "absolute", bottom: 10, left: "50%", transform: "translateX(-50%)",
+            display: "flex", gap: 6, pointerEvents: "none",
           }}>
             {allImages.map((_, i) => (
               <div key={i} style={{
-                width: 6,
-                height: 6,
-                borderRadius: "50%",
+                width: 6, height: 6, borderRadius: "50%",
                 background: i === index ? "#fff" : "rgba(255,255,255,0.4)",
                 transition: "background 0.3s",
               }} />

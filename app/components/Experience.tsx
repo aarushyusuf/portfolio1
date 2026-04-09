@@ -6,28 +6,13 @@ import TiltImage from "./TiltImage";
 const experiences = [
   {
     num: "01",
-    title: <>Digital Education Officer &mdash; <em>USIC</em></>,
-    meta: "Feb 2026 – Present",
-    org: "University of Sheffield Islamic Circle · Sheffield · Full-time",
-    tags: ["Content Creation", "Social Media", "Event Management", "Teamwork"],
-    emoji: "🌙",
-    image: "/USIC1.jpeg",
-    bg: "#EDE8F5",
-    story: [
-      "Created and published digital education content on Islamic themes for USIC's social media channels, including an Instagram carousel series on the Names of Allah.",
-      "Supported the organisation and hosting of 4 Ramadan iftars, each serving approximately 200 attendees.",
-      "Assisted in coordinating weekly Jummah prayer on campus.",
-    ],
-  },
-  {
-    num: "02",
     title: <>Powertrain Engineer &mdash; <em>Sheffield Eco Motorsport</em></>,
     meta: "Oct 2025 – Present",
     org: "Sheffield Eco Motorsport · Sheffield · On-site · Full-time",
     tags: ["FEA", "Fusion 360", "CNC", "Thermal", "Procurement"],
     emoji: "⚡",
-    images: ["/SEM1.jpg", "/SEM-FEA.png", "/SEM-assembly.png"],
-    imagePosition: "center 20%",
+    images: ["/SEM-new1.png", "/SEM-new2.png", "/SEM-new3.jpg"],
+    imagePositions: ["center", "center", "center 40%"],
     bg: "#EDE0D0",
     story: [
       "Designed and iterated the battery mount across 6 design cycles in Fusion 360, applying FEA at each stage to evaluate structural performance under representative load cases and drive decisions on safety and manufacturability.",
@@ -37,13 +22,13 @@ const experiences = [
     ],
   },
   {
-    num: "03",
+    num: "02",
     title: <>Project Lead &mdash; <em>UKSEDS NRC / The Named One</em></>,
     meta: "Sep 2025 – Present",
     org: "UKSEDS NRC · Sheffield · On-site · Full-time",
-    tags: ["OpenRocket", "Fusion 360", "KiCAD", "Avionics", "Leadership"],
+    tags: ["OpenRocket", "Fusion 360", "Avionics", "Leadership"],
     emoji: "🚀",
-    image: "/avionics-bay.png",
+    images: ["/NRC1.png", "/NRC2.png", "/NRC3.jpg"],
     bg: "#F0E8D8",
     story: [
       "Led TNO (The Named One), a multidisciplinary student rocketry team under UKSEDS NRC; managed a full project lifecycle from concept through PDR, coordinating sub-teams across structures, avionics, and recovery.",
@@ -54,51 +39,7 @@ const experiences = [
     ],
   },
   {
-    num: "04",
-    title: <>Drone Engineer Intern &amp; Student Ambassador &mdash; <em>HYPSTUMA</em></>,
-    meta: "Aug – Oct 2025",
-    org: "HYPSTUMA® · Hybrid · Internship + Full-time",
-    tags: ["UAV", "Drone Systems", "Marketing", "Outreach"],
-    emoji: "🛸",
-    bg: "#E8EEF5",
-    story: [
-      "As Drone Engineer Intern (Aug–Sep 2025), completed hands-on UAV training and produced a technical report on the NanoFly platform. Gained exposure to drone systems, flight principles, and UAV training protocols — certified on completion.",
-      "As Student Ambassador (Sep–Oct 2025), represented HYPSTUMA on campus in a hybrid capacity, supporting marketing and student outreach initiatives.",
-    ],
-  },
-  {
-    num: "05",
-    title: <>Aircraft Maintenance Intern &mdash; <em>Sarsan Aviation</em></>,
-    meta: "Jul 2024",
-    org: "Sarsan Aviation · Dubai, UAE · On-site · Internship",
-    tags: ["MRO", "Turbofan", "Avionics", "DPI", "PCB Soldering"],
-    emoji: "✈️",
-    images: ["/sarsan-4.jpeg", "/sarsan-2.jpeg", "/sarsan-3.jpeg", "/sarsan-1.jpeg"],
-    imagePositions: ["center 0%", "center", "center", "center 35%"],
-    bg: "#EAD8C8",
-    story: [
-      "Performed structural repairs on live aircraft including wing-panel riveting and crack detection using Dye Penetrant Inspection (DPI) in a regulated CAA-compliant environment.",
-      "Disassembled and reassembled major aircraft systems including APU, turbofan engine components, landing gear assemblies, and hydraulic systems under licensed engineer supervision.",
-      "Soldered and desoldered electronic components on aircraft PCBs, developing hands-on avionics and electrical systems exposure.",
-    ],
-  },
-  {
-    num: "06",
-    title: <>Engineer Intern &mdash; <em>Emirates Aviation University</em></>,
-    meta: "Jul 2024",
-    org: "Emirates Aviation University · Dubai, UAE · On-site · Internship",
-    tags: ["Flight Controls", "AutoCAD", "Aerodynamics", "Circuits", "Simulation"],
-    emoji: "🛩️",
-    bg: "#E0D4C0",
-    story: [
-      "Learned principles of flight, primary and secondary flight controls, and practiced landing procedures using a flight simulator. Explored aircraft hydraulic systems through miniaturised training setups.",
-      "Applied aerodynamic concepts to build and launch a water rocket; analysed airflow on a scale aircraft model in a wind tunnel; collaborated in assembling and programming a drone.",
-      "Gained AutoCAD experience by designing a LEGO brick; designed and built automated circuits (proximity alarm, light control system) using transducers and avionics components.",
-      "Studied piston and turbofan engines, including the V6 supercharged Audi engine and Rolls-Royce Trent 500 turbofan.",
-    ],
-  },
-  {
-    num: "07",
+    num: "03",
     title: <>ANVILS &mdash; <em>UWB Bus Tracker</em></>,
     meta: "Jan 2026",
     org: "Global Engineering Challenge · University of Sheffield · Jan 2026",
@@ -114,12 +55,58 @@ const experiences = [
     ],
   },
   {
-    num: "08",
+    num: "04",
+    title: <>Digital Education Officer &mdash; <em>USIC</em></>,
+    meta: "Feb 2026 – Present",
+    org: "University of Sheffield Islamic Circle · Sheffield · Full-time",
+    tags: ["Content Creation", "Social Media", "Event Management", "Teamwork"],
+    emoji: "🌙",
+    image: "/USIC1.jpeg",
+    bg: "#EDE8F5",
+    story: [
+      "Created and published digital education content on Islamic themes for USIC's social media channels, including an Instagram carousel series on the Names of Allah.",
+      "Supported the organisation and hosting of 4 Ramadan iftars, each serving approximately 200 attendees.",
+      "Assisted in coordinating weekly Jummah prayer on campus.",
+    ],
+  },
+  {
+    num: "05",
+    title: <>Aircraft Maintenance Intern &mdash; <em>Sarsan Aviation</em></>,
+    meta: "Jul 2024",
+    org: "Sarsan Aviation · Dubai, UAE · On-site · Internship",
+    tags: ["MRO", "Turbofan", "Avionics", "DPI", "PCB Soldering"],
+    emoji: "✈️",
+    images: ["/sarsan-4.jpeg", "/sarsan-2.jpeg", "/sarsan-3.jpeg", "/sarsan-1.jpeg"],
+    imagePositions: ["center 0%", "center", "center", "center 35%"],
+    bg: "#EAD8C8",
+    story: [
+      "Led a team of interns in live aircraft maintenance activities within a regulated aviation environment, adhering to strict safety and quality standards.",
+      "Assisted with structural inspections and repairs including wing-panel riveting and Dye Penetrant Inspection (DPI).",
+      "Gained exposure to aircraft systems including engines, landing gear, hydraulics, fuel systems, and avionics.",
+    ],
+  },
+  {
+    num: "06",
+    title: <>Engineering Competitions (Drone &amp; Rocketry) &mdash; <em>Emirates</em></>,
+    meta: "Jul 2024",
+    org: "Emirates Aviation University · Dubai, UAE · On-site",
+    tags: ["Drone Build", "Rocketry", "BetaFlight", "Gyroscope", "Teamwork"],
+    emoji: "🛩️",
+    images: ["/emirates-1.jpeg", "/emirates-2.jpeg", "/emirates-drone.mp4"],
+    imagePositions: ["center 80%", "center", "center"],
+    bg: "#E0D4C0",
+    story: [
+      "Competed in a team drone-building challenge — programmed the drone using a gyroscope and BetaFlight software, tuning flight stability; the team placed 1st.",
+      "Competed in a water rocket challenge, responsible for balancing the rocket's centre of mass and centre of pressure to ensure stable flight; the team placed 4th.",
+    ],
+  },
+  {
+    num: "07",
     title: <><em>SalahSync</em> &mdash; Prayer Timetable Aggregator</>,
     meta: "2025 – Present",
     org: "Independent · salahsync.uk · 2025 – Present",
     tags: ["Next.js", "Vercel", "Cloudflare", "iCal", "Web Scraping"],
-    emoji: "🕰",
+    image: "/salahsync-preview.png",
     bg: "#E8D8C4",
     link: { href: "https://salahsync.uk", label: "Visit salahsync.uk →" },
     story: [
@@ -165,22 +152,23 @@ export default function Experience() {
                         alt={e.org}
                         objectPosition={"imagePosition" in e ? e.imagePosition as string : "center"}
                         objectPositions={"imagePositions" in e ? e.imagePositions as string[] : undefined}
+                        active={openIndex === i}
                       />
                     ) : (
                       <div className="acc-img" style={{ background: e.bg }}>
                         <span style={{ fontSize: "3rem" }}>{e.emoji}</span>
                       </div>
                     )}
-                    {"link" in e && e.link && (
-                      <a href={(e.link as {href:string;label:string}).href} className="acc-link" target="_blank" rel="noopener noreferrer">
-                        {(e.link as {href:string;label:string}).label}
-                      </a>
-                    )}
                   </div>
                   <div className="acc-story">
                     {e.story.map((para, j) => (
                       <p key={j}>{para}</p>
                     ))}
+                    {"link" in e && e.link && (
+                      <a href={(e.link as {href:string;label:string}).href} className="acc-link" target="_blank" rel="noopener noreferrer" style={{ marginTop: "1.25rem" }}>
+                        {(e.link as {href:string;label:string}).label}
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
