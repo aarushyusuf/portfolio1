@@ -19,6 +19,20 @@ export const metadata: Metadata = {
   title: "Aarush Yusuf — Aerospace Engineer",
   description: "First-year Aerospace Engineering student at the University of Sheffield.",
   icons: { icon: "/favicon.ico" },
+  openGraph: {
+    title: "Aarush Yusuf — Aerospace Engineer",
+    description: "First-year Aerospace Engineering student at the University of Sheffield.",
+    url: "https://aarushyusuf.dev",
+    siteName: "Aarush Yusuf",
+    images: [{ url: "https://aarushyusuf.dev/og-image.png", width: 1425, height: 755 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aarush Yusuf — Aerospace Engineer",
+    description: "First-year Aerospace Engineering student at the University of Sheffield.",
+    images: ["https://aarushyusuf.dev/og-image.png"],
+  },
 };
 
 export default function RootLayout({
