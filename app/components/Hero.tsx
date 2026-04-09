@@ -33,7 +33,11 @@ export default function Hero() {
           </div>
           <div className="currently-row" style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0" }}>
             <span>Aerospace Engineering Student</span>
-            <a href="https://www.sheffield.ac.uk" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none" }}>University of Sheffield ↗</a>
+            <a href="https://www.sheffield.ac.uk" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none" }}>
+              <span className="hide-mobile">University of Sheffield</span>
+              <span className="show-mobile">UoS</span>
+              {" ↗"}
+            </a>
           </div>
           <div className="currently-row" style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0 0.75rem" }}>
             <span>Powertrain Engineer</span>

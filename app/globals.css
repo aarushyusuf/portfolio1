@@ -150,4 +150,11 @@ footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex;
   .theme-toggle { width: 28px; height: 28px; font-size: 12px; }
   .hero-name { white-space: normal; font-size: clamp(2rem, 10vw, 3rem); }
   .currently-row { flex-wrap: wrap; row-gap: 0.1rem; }
+  .hide-mobile { display: none; }
+  .show-mobile { display: inline; }
+}
+
+@media (min-width: 641px) {
+  .hide-mobile { display: inline; }
+  .show-mobile { display: none; }
 }
