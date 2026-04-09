@@ -18,6 +18,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Aarush Yusuf — Aerospace Engineer",
   description: "First-year Aerospace Engineering student at the University of Sheffield.",
+  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({
