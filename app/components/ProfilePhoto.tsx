@@ -41,10 +41,10 @@ export default function ProfilePhoto() {
   return (
     <div
       style={{
-        width: 200,
-        height: 200,
+        width: 185,
+        height: 185,
         borderRadius: "50%",
-        margin: "0 auto 2rem",
+        margin: "0 auto 1.25rem",
         cursor: "pointer",
         transformStyle: "preserve-3d",
         transition: "transform 0.15s ease, box-shadow 0.15s ease",
