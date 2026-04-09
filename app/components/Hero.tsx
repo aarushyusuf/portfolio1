@@ -24,18 +24,18 @@ export default function Hero() {
         {/* Currently */}
         <div className="reveal d3" style={{ width: "100%", textAlign: "left", marginTop: "1.25rem" }}>
           <div style={{ width: "100%", height: 1, background: "var(--border)" }} />
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.75rem 0 0.2rem" }}>
+          <div className="currently-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.75rem 0 0.2rem" }}>
             <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)" }}>Currently</span>
             <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14, color: "var(--dark)" }}>
               <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--gold)", display: "inline-block", animation: "pulse 2s infinite" }} />
               Open to placements
             </div>
           </div>
-          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0" }}>
+          <div className="currently-row" style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0" }}>
             <span>Aerospace Engineering Student</span>
             <a href="https://www.sheffield.ac.uk" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none" }}>University of Sheffield ↗</a>
           </div>
-          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0 0.75rem" }}>
+          <div className="currently-row" style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0 0.75rem" }}>
             <span>Powertrain Engineer</span>
             <a href="https://sheffieldecomotorsport.com/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none" }}>Sheffield EcoMotorsport ↗</a>
           </div>

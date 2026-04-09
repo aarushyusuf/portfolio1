@@ -141,3 +141,13 @@ footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex;
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   footer { flex-direction: column; gap: 0.75rem; padding: 1.5rem; text-align: center; }
 }
+
+@media (max-width: 640px) {
+  nav { padding: 1rem; }
+  .nav-logo { font-size: 1rem; }
+  .nav-links { gap: 1rem; }
+  .nav-links a { font-size: 11px; letter-spacing: 0.02em; }
+  .theme-toggle { width: 28px; height: 28px; font-size: 12px; }
+  .hero-name { white-space: normal; font-size: clamp(2rem, 10vw, 3rem); }
+  .currently-row { flex-wrap: wrap; row-gap: 0.1rem; }
+}
