@@ -41,7 +41,11 @@ export default function Hero() {
           </div>
           <div className="currently-row" style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0 0.75rem" }}>
             <span>Powertrain Engineer</span>
-            <a href="https://sheffieldecomotorsport.com/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none" }}>Sheffield EcoMotorsport ↗</a>
+            <a href="https://sheffieldecomotorsport.com/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none" }}>
+              <span className="hide-mobile">Sheffield EcoMotorsport</span>
+              <span className="show-mobile">SEM</span>
+              {" ↗"}
+            </a>
           </div>
           <div style={{ width: "100%", height: 1, background: "var(--border)" }} />
         </div>
