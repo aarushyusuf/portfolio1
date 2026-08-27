@@ -15,13 +15,20 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
 });
 
+const DESCRIPTION =
+  "Aerospace Engineering student at the University of Sheffield. Liquid rocket propulsion at AVROS, solar race car design at Sheffield EcoMotorsport, and a 1,700 ft competition rocket launch.";
+
 export const metadata: Metadata = {
-  title: "Aarush Yusuf — Aerospace Engineer",
-  description: "First-year Aerospace Engineering student at the University of Sheffield.",
+  metadataBase: new URL("https://aarushyusuf.dev"),
+  title: {
+    default: "Aarush Yusuf — Aerospace Engineer",
+    template: "%s",
+  },
+  description: DESCRIPTION,
   icons: { icon: "/favicon.ico" },
   openGraph: {
     title: "Aarush Yusuf — Aerospace Engineer",
-    description: "First-year Aerospace Engineering student at the University of Sheffield.",
+    description: DESCRIPTION,
     url: "https://aarushyusuf.dev",
     siteName: "Aarush Yusuf",
     images: [{ url: "https://aarushyusuf.dev/og-image.png", width: 1425, height: 755 }],
@@ -30,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Aarush Yusuf — Aerospace Engineer",
-    description: "First-year Aerospace Engineering student at the University of Sheffield.",
+    description: DESCRIPTION,
     images: ["https://aarushyusuf.dev/og-image.png"],
   },
 };

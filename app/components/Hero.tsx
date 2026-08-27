@@ -14,7 +14,7 @@ export default function Hero() {
           Aarush <em>Yusuf.</em>
         </h1>
         <p className="hero-tagline reveal d2" style={{ marginBottom: "1.25rem" }}>
-          Building rockets, race cars, and software &mdash; first-year Aerospace Engineering student at the University of Sheffield.
+          Building rockets, race cars, and aircraft &mdash; Aerospace Engineering at the University of Sheffield.
         </p>
         <div className="hero-ctas reveal d3" style={{ justifyContent: "center" }}>
           <a href="#experience" className="btn-primary">See my work</a>
@@ -39,8 +39,13 @@ export default function Hero() {
               {" ↗"}
             </a>
           </div>
+          <div className="currently-row" style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0" }}>
+            <span>Design Engineer</span>
+            <span style={{ color: "var(--gold)" }}>AVROS Rocketry</span>
+          </div>
           <div className="currently-row" style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0 0.75rem" }}>
-            <span>Powertrain Engineer</span>
+            <span className="hide-mobile">Aerodynamics &amp; Mechanical Design</span>
+            <span className="show-mobile">Aero &amp; Mech Design</span>
             <a href="https://sheffieldecomotorsport.com/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none" }}>
               <span className="hide-mobile">Sheffield EcoMotorsport</span>
               <span className="show-mobile">SEM</span>

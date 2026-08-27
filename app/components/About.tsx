@@ -8,15 +8,22 @@ export default function About() {
         </h2>
         <div className="about-body reveal">
           <p>
-            I&apos;m a first-year Aerospace Engineering student at the University of Sheffield,
-            with hands-on experience ranging from aircraft maintenance internships in Dubai to
-            founding and leading a competitive student rocketry team.
+            I&apos;m an Aerospace Engineering student at the University of Sheffield, currently
+            designing a safety-critical piston for a reusable liquid rocket engine at AVROS
+            Rocketry and working on aerodynamics and mechanical design for Sheffield
+            EcoMotorsport&apos;s solar race car.
           </p>
           <p>
             I care about the full lifecycle &mdash; not just designing something, but seeing it
-            manufactured, tested, and shipped. Whether that&apos;s iterating a battery mount six
-            times until the FEA passes, or building a web tool from scratch that now serves eight
-            mosques across the UK, I see things through.
+            manufactured, tested, and broken. I led a ten-person team to a live rocket launch at
+            1,700 ft, then wrote the post-flight failure analysis that explained why the nosecone
+            came off. I scratch-built an RC aircraft, and only got it flying after tracing a
+            repeated in-flight failure to a centre of gravity sitting at 60% MAC.
+          </p>
+          <p>
+            The pattern I keep coming back to is diagnosis: figuring out precisely why a thing
+            failed, rather than replacing parts until it stops. That is usually where the
+            engineering actually is.
           </p>
         </div>
       </div>

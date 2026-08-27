@@ -1,6 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
+const LINKS = [
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "contact", label: "Contact" },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,17 +31,32 @@ export default function Navbar() {
     localStorage.setItem("theme", next ? "dark" : "light");
   };
 
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  // These sections only exist on the homepage. On a case study page the same
+  // link has to navigate home instead of silently doing nothing, so only
+  // intercept the click when the target is actually on this page.
+  const handleSectionClick = (e: React.MouseEvent, id: string) => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <nav className={scrolled ? "scrolled" : ""}>
-      <a href="#top" className="nav-logo">Aarush Yusuf</a>
+      <Link href="/" className="nav-logo">
+        Aarush Yusuf
+      </Link>
       <ul className="nav-links">
-        <li><a href="#about" onClick={e => { e.preventDefault(); scrollTo("about"); }}>About</a></li>
-        <li><a href="#experience" onClick={e => { e.preventDefault(); scrollTo("experience"); }}>Experience</a></li>
-        <li><a href="#contact" onClick={e => { e.preventDefault(); scrollTo("contact"); }}>Contact</a></li>
+        {LINKS.map(({ id, label }) => (
+          <li key={id}>
+            <a href={`/#${id}`} onClick={(e) => handleSectionClick(e, id)}>
+              {label}
+            </a>
+          </li>
+        ))}
+        <li>
+          <Link href="/projects">Work</Link>
+        </li>
         <li>
           <button onClick={toggleDark} className="theme-toggle" aria-label="Toggle dark mode">
             {dark ? "☀" : "☾"}
