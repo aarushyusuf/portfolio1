@@ -23,6 +23,8 @@
 // for being repetitive. Delete them if they stay unused.
 // ============================================================
 
+import { localWork } from "./work.local";
+
 export type Highlight = { value: string; label: string };
 
 export type WorkItem = {
@@ -48,7 +50,7 @@ export type WorkItem = {
   link?: { href: string; label: string };
 };
 
-export const work: WorkItem[] = [
+const published: WorkItem[] = [
   {
     slug: "avros",
     kind: "work",
@@ -375,6 +377,16 @@ export const work: WorkItem[] = [
     ],
   },
 ];
+
+/**
+ * What the site actually renders.
+ *
+ * `localWork` is empty in the version of work.local.ts that GitHub and
+ * Vercel hold, so the deployed site shows only the published entries
+ * above. On Aarush's own machine that file carries extra entries, which
+ * therefore appear on localhost and nowhere else. See work.local.ts.
+ */
+export const work: WorkItem[] = [...published, ...localWork];
 
 /** Lookup used by the dynamic route and its metadata. */
 export function getWorkItem(slug: string): WorkItem | undefined {
