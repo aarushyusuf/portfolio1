@@ -160,6 +160,16 @@ const published: WorkItem[] = [
     tags: ["Aircraft Design", "Flight Testing", "CG / MAC Analysis", "Datasheet Analysis", "Failure Analysis"],
     emoji: "🛩",
     bg: "#E4DED0",
+    // Shot portrait, so each needs its own vertical crop point to keep the
+    // aircraft in a 4:3 frame rather than centring on empty sky or grass.
+    // The still leads so something appears instantly; the flight clip follows.
+    images: [
+      "/fixed-wing-1.jpeg",
+      "/fixed-wing-flight.mp4",
+      "/fixed-wing-2.jpeg",
+      "/fixed-wing-3.jpeg",
+    ],
+    imagePositions: ["center 55%", "center", "center 50%", "center 45%"],
     highlights: [
       { value: "600 mm", label: "wingspan" },
       { value: "60% → 22%", label: "MAC corrected" },
