@@ -1,6 +1,14 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
+
+// Length of the crossfade. Must match the CSS `transition: opacity 0.4s`
+// on the <img>/<video> below, or slides swap mid-fade.
+const FADE_MS = 400;
+
+// How long manual control holds before the carousel starts advancing on
+// its own again, measured from the last arrow press.
+const RESUME_MS = 8000;
 
 interface TiltImageProps {
   src?: string;
@@ -31,22 +39,83 @@ export default function TiltImage({
   const [index, setIndex] = useState(0);
   const [fading, setFading] = useState(false);
 
+  // Set while the viewer is driving with the arrow keys. Suspends the
+  // autoplay interval rather than killing it — see the resume timer.
+  const [paused, setPaused] = useState(false);
+  const fadeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const count = allImages.length;
+
+  // One code path for both autoplay and the arrow keys, so a manual step
+  // gets the same crossfade as an automatic one. Holding an arrow down
+  // restarts the fade instead of stacking overlapping ones.
+  const go = useCallback(
+    (delta: number) => {
+      if (count <= 1) return;
+      if (fadeTimerRef.current) clearTimeout(fadeTimerRef.current);
+      setFading(true);
+      fadeTimerRef.current = setTimeout(() => {
+        setIndex(i => (i + delta + count) % count);
+        setFading(false);
+        fadeTimerRef.current = null;
+      }, FADE_MS);
+    },
+    [count],
+  );
+
+  // Rewind whenever this gallery is shown or hidden — an accordion panel
+  // reopening should start from the first image, not mid-sequence.
   useEffect(() => {
     setIndex(0);
     setFading(false);
+    setPaused(false);
+    if (fadeTimerRef.current) clearTimeout(fadeTimerRef.current);
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
   }, [active]);
 
   useEffect(() => {
-    if (allImages.length <= 1 || !active) return;
-    const timer = setInterval(() => {
-      setFading(true);
-      setTimeout(() => {
-        setIndex(i => (i + 1) % allImages.length);
-        setFading(false);
-      }, 400);
-    }, interval);
+    if (count <= 1 || !active || paused) return;
+    const timer = setInterval(() => go(1), interval);
     return () => clearInterval(timer);
-  }, [allImages.length, interval, active]);
+  }, [count, interval, active, paused, go]);
+
+  // Left/right arrows steer the gallery. The listener is on the window so
+  // it works without clicking the image first; that is only unambiguous
+  // because at most one gallery is ever `active` at a time (the accordion
+  // opens a single panel, and a case study page renders one gallery).
+  useEffect(() => {
+    if (count <= 1 || !active) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+      // Never steal the arrows from someone typing in the contact form.
+      const t = e.target as HTMLElement | null;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+
+      e.preventDefault(); // suppress the browser's horizontal scroll
+      setPaused(true);
+      go(e.key === "ArrowRight" ? 1 : -1);
+
+      // Each press pushes the resume deadline back, so autoplay only
+      // returns once they have actually stopped.
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+      resumeTimerRef.current = setTimeout(() => setPaused(false), RESUME_MS);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [count, active, go]);
+
+  useEffect(
+    () => () => {
+      if (fadeTimerRef.current) clearTimeout(fadeTimerRef.current);
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    },
+    [],
+  );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = containerRef.current;
