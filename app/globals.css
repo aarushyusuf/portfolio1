@@ -103,8 +103,12 @@ section { padding: 6rem 3rem; border-bottom: 1px solid var(--border); }
 .acc-item.open .acc-body { grid-template-rows: 1fr; }
 .acc-body-inner { overflow: hidden; }
 .acc-content { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; padding: 0 0 3rem; }
-.acc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
-.ctag { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--border); color: var(--muted); }
+/* Both tag strips. .case-tags used to have no rule at all, so its chips were
+   plain inline spans and a two-word tag ("Fusion 360") broke across lines with
+   the border splitting mid-phrase. */
+.acc-tags, .case-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+/* nowrap keeps a chip whole whatever container it lands in. */
+.ctag { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--border); color: var(--muted); white-space: nowrap; }
 .acc-org { font-size: 13px; color: var(--muted); font-weight: 300; margin-bottom: 1.5rem; }
 .acc-story { font-size: 14px; color: var(--muted); line-height: 1.9; font-weight: 300; }
 .acc-story p + p { margin-top: 1rem; }
@@ -146,7 +150,7 @@ section { padding: 6rem 3rem; border-bottom: 1px solid var(--border); }
 .case-title em { font-style: italic; color: var(--gold); }
 .case-summary { font-size: 1.1rem; line-height: 1.8; color: var(--muted); font-weight: 300; margin-top: 1.5rem; }
 .case-body { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; margin-top: 3.5rem; padding-top: 3.5rem; border-top: 1px solid var(--border); }
-.case-media .acc-tags { margin-top: 1.5rem; margin-bottom: 0; }
+.case-media .acc-tags, .case-media .case-tags { margin-top: 1.5rem; margin-bottom: 0; }
 .case-media .acc-link { margin-top: 1.5rem; }
 .case-story { font-size: 15px; line-height: 1.95; color: var(--muted); font-weight: 300; }
 .case-story p + p { margin-top: 1.4rem; }

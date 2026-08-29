@@ -95,7 +95,19 @@ const published: WorkItem[] = [
     tags: ["OpenRocket", "Fusion 360", "Avionics", "Telemetry", "Failure Analysis", "Leadership"],
     emoji: "🚀",
     bg: "#F0E8D8",
-    images: ["/NRC1.png", "/NRC2.png", "/NRC3.jpg", "/avionics-bay.png"],
+    // Opens on the launch, then the airframe that flew, its internals, the
+    // data it sent back, the avionics that sent it, the CAD, and the team.
+    // Both CAD renders and the rocket photo are the whole airframe stood
+    // upright; every file is cut to 4:3, so none needs its own crop point.
+    images: [
+      "/tno-launch.mp4",
+      "/tno-rocket.jpg",
+      "/tno-cad-section.png",
+      "/tno-telemetry.jpg",
+      "/tno-avionics.mp4",
+      "/tno-cad-full.png",
+      "/tno-team.jpg",
+    ],
     highlights: [
       { value: "1,700 ft", label: "apogee reached" },
       { value: "10", label: "team members led" },
