@@ -214,6 +214,13 @@ const published: WorkItem[] = [
     tags: ["Fusion 360", "EMG Sensing", "Arduino", "Servo Actuation", "Design for Cost", "Leadership"],
     emoji: "🦾",
     bg: "#E8DCE8",
+    // The full 15s Fusion assembly animation. It is 16:9 and the frame is
+    // 4:3, so cover crops ~12% off each side; the arm sits centred, so
+    // nothing structural is lost.
+    images: ["/afiyah-assembly.mp4"],
+    // Pushed to the right-hand edge of the source, the furthest left the frame
+    // can shift it. See the note above on the 16:9 -> 4:3 overflow.
+    imagePositions: ["100% center"],
     highlights: [
       { value: "£72", label: "unit cost" },
       { value: "95%", label: "cheaper than commercial" },
