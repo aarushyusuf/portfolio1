@@ -7,7 +7,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 const FADE_MS = 400;
 
 // How long manual control holds before the carousel starts advancing on
-// its own again, measured from the last arrow press.
+// its own again, measured from the last click.
 const RESUME_MS = 8000;
 
 interface TiltImageProps {
@@ -31,25 +31,21 @@ export default function TiltImage({
   interval = 5000,
   active = true,
 }: TiltImageProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const glareRef = useRef<HTMLDivElement>(null);
-  const hoveredRef = useRef(false);
-
   const allImages = images ?? (src ? [src] : []);
   const [index, setIndex] = useState(0);
   const [fading, setFading] = useState(false);
 
-  // Set while the viewer is driving with the arrow keys. Suspends the
-  // autoplay interval rather than killing it — see the resume timer.
+  // Set while the viewer is driving with the arrows. Suspends the autoplay
+  // interval rather than killing it — see the resume timer.
   const [paused, setPaused] = useState(false);
   const fadeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const count = allImages.length;
 
-  // One code path for both autoplay and the arrow keys, so a manual step
-  // gets the same crossfade as an automatic one. Holding an arrow down
-  // restarts the fade instead of stacking overlapping ones.
+  // One code path for both autoplay and the arrows, so a manual step gets
+  // the same crossfade as an automatic one. Clicking repeatedly restarts
+  // the fade instead of stacking overlapping ones.
   const go = useCallback(
     (delta: number) => {
       if (count <= 1) return;
@@ -62,6 +58,18 @@ export default function TiltImage({
       }, FADE_MS);
     },
     [count],
+  );
+
+  // A click hands control to the viewer. Each further click pushes the
+  // resume deadline back, so autoplay only returns once they have stopped.
+  const step = useCallback(
+    (delta: number) => {
+      setPaused(true);
+      go(delta);
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+      resumeTimerRef.current = setTimeout(() => setPaused(false), RESUME_MS);
+    },
+    [go],
   );
 
   // Rewind whenever this gallery is shown or hidden — an accordion panel
@@ -80,35 +88,6 @@ export default function TiltImage({
     return () => clearInterval(timer);
   }, [count, interval, active, paused, go]);
 
-  // Left/right arrows steer the gallery. The listener is on the window so
-  // it works without clicking the image first; that is only unambiguous
-  // because at most one gallery is ever `active` at a time (the accordion
-  // opens a single panel, and a case study page renders one gallery).
-  useEffect(() => {
-    if (count <= 1 || !active) return;
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-      if (e.metaKey || e.ctrlKey || e.altKey) return;
-
-      // Never steal the arrows from someone typing in the contact form.
-      const t = e.target as HTMLElement | null;
-      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
-
-      e.preventDefault(); // suppress the browser's horizontal scroll
-      setPaused(true);
-      go(e.key === "ArrowRight" ? 1 : -1);
-
-      // Each press pushes the resume deadline back, so autoplay only
-      // returns once they have actually stopped.
-      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
-      resumeTimerRef.current = setTimeout(() => setPaused(false), RESUME_MS);
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [count, active, go]);
-
   useEffect(
     () => () => {
       if (fadeTimerRef.current) clearTimeout(fadeTimerRef.current);
@@ -117,56 +96,46 @@ export default function TiltImage({
     [],
   );
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = containerRef.current;
-    const glare = glareRef.current;
-    if (!el || !glare) return;
-
-    const rect = el.getBoundingClientRect();
-    const dx = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
-    const dy = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
-
-    el.style.transform = `perspective(600px) rotateX(${-dy * 15}deg) rotateY(${dx * 15}deg) scale(1.04)`;
-
-    const gx = ((dx + 1) / 2) * 100;
-    const gy = ((dy + 1) / 2) * 100;
-    glare.style.background = `radial-gradient(circle at ${gx}% ${gy}%, rgba(255,255,255,0.22) 0%, transparent 65%)`;
-    glare.style.opacity = "1";
-  };
-
-  const handleMouseLeave = () => {
-    hoveredRef.current = false;
-    const el = containerRef.current;
-    const glare = glareRef.current;
-    if (!el || !glare) return;
-    el.style.transform = "perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)";
-    glare.style.opacity = "0";
-  };
-
-  const handleMouseEnter = () => {
-    hoveredRef.current = true;
-  };
-
   if (allImages.length === 0) return null;
 
+  const arrowStyle: React.CSSProperties = {
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    width: 34,
+    height: 34,
+    display: "grid",
+    placeItems: "center",
+    border: "none",
+    borderRadius: "50%",
+    background: "rgba(0,0,0,0.34)",
+    color: "#fff",
+    cursor: "pointer",
+    padding: 0,
+    opacity: 0.75,
+    transition: "opacity 0.2s ease, background 0.2s ease",
+    backdropFilter: "blur(4px)",
+  };
+
+  const hoverOn = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.currentTarget.style.opacity = "1";
+    e.currentTarget.style.background = "rgba(0,0,0,0.55)";
+  };
+  const hoverOff = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.currentTarget.style.opacity = "0.75";
+    e.currentTarget.style.background = "rgba(0,0,0,0.34)";
+  };
+
   return (
-    <div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      onMouseEnter={handleMouseEnter}
-      style={{ width: "100%", transformStyle: "preserve-3d" }}
-    >
+    <div style={{ width: "100%" }}>
       <div
-        ref={containerRef}
         style={{
           width: "100%",
           aspectRatio: "4/3",
           borderRadius,
           overflow: "hidden",
           position: "relative",
-          transition: "transform 0.15s ease",
           boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-          cursor: "default",
         }}
       >
         {allImages[index].endsWith(".mp4") ? (
@@ -201,30 +170,45 @@ export default function TiltImage({
             }}
           />
         )}
-        <div
-          ref={glareRef}
-          style={{
-            position: "absolute",
-            inset: 0,
-            borderRadius,
-            opacity: 0,
-            pointerEvents: "none",
-            transition: "opacity 0.2s ease",
-          }}
-        />
         {allImages.length > 1 && (
-          <div style={{
-            position: "absolute", bottom: 10, left: "50%", transform: "translateX(-50%)",
-            display: "flex", gap: 6, pointerEvents: "none",
-          }}>
-            {allImages.map((_, i) => (
-              <div key={i} style={{
-                width: 6, height: 6, borderRadius: "50%",
-                background: i === index ? "#fff" : "rgba(255,255,255,0.4)",
-                transition: "background 0.3s",
-              }} />
-            ))}
-          </div>
+          <>
+            <button
+              type="button"
+              aria-label="Previous image"
+              onClick={() => step(-1)}
+              onMouseEnter={hoverOn}
+              onMouseLeave={hoverOff}
+              style={{ ...arrowStyle, left: 10 }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-label="Next image"
+              onClick={() => step(1)}
+              onMouseEnter={hoverOn}
+              onMouseLeave={hoverOff}
+              style={{ ...arrowStyle, right: 10 }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+            <div style={{
+              position: "absolute", bottom: 10, left: "50%", transform: "translateX(-50%)",
+              display: "flex", gap: 6, pointerEvents: "none",
+            }}>
+              {allImages.map((_, i) => (
+                <div key={i} style={{
+                  width: 6, height: 6, borderRadius: "50%",
+                  background: i === index ? "#fff" : "rgba(255,255,255,0.4)",
+                  transition: "background 0.3s",
+                }} />
+              ))}
+            </div>
+          </>
         )}
       </div>
     </div>
