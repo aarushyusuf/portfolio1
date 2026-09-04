@@ -325,30 +325,33 @@ const published: WorkItem[] = [
     ],
   },
   {
-    slug: "pcb-formula-student",
+    slug: "pcb-design",
     kind: "project",
     title: "PCB Design —",
-    titleEm: "Formula Student Brief",
+    titleEm: "Analog Signal Chain",
     short: "PCB Design",
     meta: "Aug 2026",
-    org: "Formula Student electrical recruitment brief · Independent",
+    org: "Independent project · Sheffield",
     role: "Independent Project",
     period: "August 2026",
     location: "Sheffield, UK",
     summary:
-      "Completed a Formula Student electrical recruitment brief in KiCad: a 3-stage analog signal-conditioning PCB, manually routed, passing ERC and DRC with no functional errors.",
+      "A 3-stage analog signal-conditioning PCB designed in KiCad — amplifier, band-pass filter and comparator — routed entirely by hand and passing ERC and DRC with no functional errors.",
     tags: ["KiCad", "PCB Design", "Analog Circuits", "ERC / DRC"],
     emoji: "🔧",
     bg: "#DCDED4",
+    // Schematic -> routed board -> 3D render. All cropped clear of the KiCad
+    // chrome; the schematic is 2.4:1 so it is fitted on the canvas colour.
+    images: ["/pcb-schematic.png", "/pcb-layout.png", "/pcb-3d.png"],
     highlights: [
       { value: "3-stage", label: "signal chain" },
       { value: "100%", label: "manually routed" },
       { value: "0", label: "ERC / DRC errors" },
     ],
     story: [
-      "I independently completed a Formula Student electrical recruitment brief in KiCad, laying out a PCB for a three-stage analog signal-conditioning circuit: amplifier, band-pass filter, and comparator.",
+      "A self-directed KiCad project: a printed circuit board for a three-stage analog signal-conditioning circuit — an amplifier, a band-pass filter, and a comparator — taking a pulse input and returning a clean square wave.",
       "I routed every trace manually rather than leaning on the autorouter. On an analog signal chain that is the right call — trace length and return path placement affect the signal in ways an autorouter optimising purely for connection does not account for.",
-      "The board passed both ERC and DRC checks with no functional errors.",
+      "The finished board carries 40 pads, 15 vias and 160 track segments across 13 nets with nothing left unrouted. It passed both ERC and DRC with no functional errors.",
     ],
   },
   {
