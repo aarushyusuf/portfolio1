@@ -180,10 +180,9 @@ const published: WorkItem[] = [
       "/fixed-wing-cad.png",
       "/fixed-wing-1.jpeg",
       "/fixed-wing-flight.mp4",
-      "/fixed-wing-2.jpeg",
       "/fixed-wing-3.jpeg",
     ],
-    imagePositions: ["center", "center 55%", "center", "center 50%", "center 45%"],
+    imagePositions: ["center", "center 55%", "center", "center 45%"],
     highlights: [
       { value: "600 mm", label: "wingspan" },
       { value: "60% → 22%", label: "MAC corrected" },
