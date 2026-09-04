@@ -7,12 +7,12 @@ import { KIND_LABELS, work, type WorkItem } from "../data/work";
 import { SITE_URL } from "../data/profile";
 
 export const metadata: Metadata = {
-  title: "Work — Aarush Yusuf",
+  title: "Work | Aarush Yusuf",
   description:
     "Selected engineering work by Aarush Yusuf: liquid rocket propulsion, competition rocketry, solar race car design, aircraft build and test, and prosthetics.",
   alternates: { canonical: `${SITE_URL}/projects` },
   openGraph: {
-    title: "Work — Aarush Yusuf",
+    title: "Work | Aarush Yusuf",
     description:
       "Selected engineering work by Aarush Yusuf: liquid rocket propulsion, competition rocketry, solar race car design, aircraft build and test, and prosthetics.",
     url: `${SITE_URL}/projects`,
@@ -44,7 +44,7 @@ export default function ProjectsIndexPage() {
             Everything I&apos;ve <em>built.</em>
           </h1>
           <p className="case-summary">
-            Each entry has its own page with the full engineering detail &mdash; the
+            Each entry has its own page with the full engineering detail: the
             decisions, the numbers, and what broke along the way.
           </p>
         </header>

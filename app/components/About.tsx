@@ -14,7 +14,7 @@ export default function About() {
             EcoMotorsport&apos;s solar race car.
           </p>
           <p>
-            I care about the full lifecycle &mdash; not just designing something, but seeing it
+            I care about the full lifecycle, not just designing something but seeing it
             manufactured, tested, and broken. I led a ten-person team to a live rocket launch at
             1,700 ft, then wrote the post-flight failure analysis that explained why the nosecone
             came off. I scratch-built an RC aircraft, and only got it flying after tracing a

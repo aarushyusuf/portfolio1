@@ -15,7 +15,7 @@ export const profile = {
   github: "https://github.com/aarushyusuf",
 
   tagline:
-    "Building rockets, race cars, and aircraft — Aerospace Engineering at the University of Sheffield.",
+    "Building rockets, race cars, and aircraft. Aerospace Engineering at the University of Sheffield.",
 
   currently: [
     { label: "Design Engineer", org: "AVROS Rocketry", orgShort: "AVROS", href: "" },
@@ -39,14 +39,14 @@ export const education = [
   },
   {
     school: "Al Diyafah High School",
-    qualification: "A-Levels — Mathematics, Physics, Chemistry",
+    qualification: "A-Levels: Mathematics, Physics, Chemistry",
     period: "2023 – 2025",
     result: "A* A* A*",
     detail: "Cohort ranking: 4 of 94",
   },
   {
     school: "GEMS Westminster School",
-    qualification: "GCSE — Maths, Physics, Chemistry, Computer Science, English",
+    qualification: "GCSE: Maths, Physics, Chemistry, Computer Science, English",
     period: "2022 – 2023",
     result: "5A*",
     detail: "Cohort ranking: School Topper",

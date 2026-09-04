@@ -21,13 +21,13 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   metadataBase: new URL("https://aarushyusuf.dev"),
   title: {
-    default: "Aarush Yusuf — Aerospace Engineer",
+    default: "Aarush Yusuf | Aerospace Engineer",
     template: "%s",
   },
   description: DESCRIPTION,
   icons: { icon: "/favicon.ico" },
   openGraph: {
-    title: "Aarush Yusuf — Aerospace Engineer",
+    title: "Aarush Yusuf | Aerospace Engineer",
     description: DESCRIPTION,
     url: "https://aarushyusuf.dev",
     siteName: "Aarush Yusuf",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aarush Yusuf — Aerospace Engineer",
+    title: "Aarush Yusuf | Aerospace Engineer",
     description: DESCRIPTION,
     images: ["https://aarushyusuf.dev/og-image.png"],
   },

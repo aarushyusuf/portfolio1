@@ -14,7 +14,7 @@ export default function Hero() {
           Aarush <em>Yusuf.</em>
         </h1>
         <p className="hero-tagline reveal d2" style={{ marginBottom: "1.25rem" }}>
-          Building rockets, race cars, and aircraft &mdash; Aerospace Engineering at the University of Sheffield.
+          Building rockets, race cars, and aircraft. Aerospace Engineering at the University of Sheffield.
         </p>
         <div className="hero-ctas reveal d3" style={{ justifyContent: "center" }}>
           <a href="#experience" className="btn-primary">See my work</a>

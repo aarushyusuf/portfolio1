@@ -27,7 +27,7 @@ export async function generateMetadata({
   const item = getWorkItem(slug);
   if (!item) return {};
 
-  const title = `${item.short} — ${item.role} | Aarush Yusuf`;
+  const title = `${item.short}, ${item.role} | Aarush Yusuf`;
   const url = `${SITE_URL}/projects/${item.slug}`;
 
   return {

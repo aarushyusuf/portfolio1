@@ -71,7 +71,7 @@ export default function Contact() {
           </h2>
           <p className="contact-sub">
             Open to summer placements and engineering internships across the UK. Aerospace,
-            automotive, systems &mdash; let&apos;s talk.
+            automotive, systems. Let&apos;s talk.
           </p>
         </div>
 
@@ -124,7 +124,7 @@ export default function Contact() {
 
           {status === "success" && (
             <p style={{ fontSize: 13, color: "var(--gold)", marginTop: 12 }}>
-              Message sent — I&apos;ll get back to you soon.
+              Message sent. I&apos;ll get back to you soon.
             </p>
           )}
         </form>
