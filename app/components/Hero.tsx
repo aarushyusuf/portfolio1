@@ -41,7 +41,11 @@ export default function Hero() {
           </div>
           <div className="currently-row" style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0" }}>
             <span>Design Engineer</span>
-            <span style={{ color: "var(--gold)" }}>AVROS Rocketry</span>
+            <a href="https://www.linkedin.com/company/avros-rocketry" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none" }}>
+              <span className="hide-mobile">AVROS Rocketry</span>
+              <span className="show-mobile">AVROS</span>
+              {" ↗"}
+            </a>
           </div>
           <div className="currently-row" style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0 0.75rem" }}>
             <span className="hide-mobile">Aerodynamics &amp; Mechanical Design</span>

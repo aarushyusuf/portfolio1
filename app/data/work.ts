@@ -67,6 +67,8 @@ const published: WorkItem[] = [
     tags: ["Onshape", "Liquid Propulsion", "O-Ring Design", "Hand Calculation", "Design Verification"],
     emoji: "🛰",
     bg: "#E6DFD2",
+    // AVROS has no site of its own, so this points at the company page.
+    link: { href: "https://www.linkedin.com/company/avros-rocketry", label: "AVROS Rocketry on LinkedIn →" },
     highlights: [
       { value: "500–800", label: "psi design range" },
       { value: "IPA / N₂O", label: "separated propellants" },
