@@ -46,14 +46,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`} suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var cl=document.documentElement.classList;cl.add('no-transition');var saved=localStorage.getItem('theme');var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;if(saved==='dark'||(saved===null&&prefersDark))cl.add('dark');requestAnimationFrame(function(){requestAnimationFrame(function(){cl.remove('no-transition')})})}catch(e){}})()`,
-          }}
-        />
-      </head>
+    // The theme is fixed dark, so there is no class to set before paint and
+    // no inline boot script here any more. globals.css declares the palette
+    // and `color-scheme: dark` outright.
+    <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`}>
       <body>{children}</body>
     </html>
   );

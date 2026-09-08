@@ -2,25 +2,25 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* The site is dark only. These were previously the `html.dark` overrides;
+   they are now the sole palette, so there is no light variant to fall back
+   to and nothing to toggle. Note the names are historical: --cream is the
+   page ground and --dark is the text on it, which is the opposite of what
+   they read like. */
 :root {
-  --cream: #FFF8F0;
-  --gold: #C08552;
-  --brown: #8C5A3C;
-  --dark: #4B2E2B;
-  --muted: #A08070;
-  --border: #E8D8C8;
+  --cream: #1C1714;
+  --gold: #D4956A;
+  --brown: #B07858;
+  --dark: #F0E6DA;
+  --muted: #9A8478;
+  --border: #3D2E28;
   --serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   --sans: var(--font-dm-sans), "DM Sans", sans-serif;
 }
 
-html.dark {
-  --cream: #1C1714;
-  --dark: #F0E6DA;
-  --muted: #9A8478;
-  --border: #3D2E28;
-  --gold: #D4956A;
-  --brown: #B07858;
-}
+/* Tells the browser to render form controls, scrollbars and the like dark,
+   and stops a white flash before the first paint. */
+:root { color-scheme: dark; }
 
 html { scroll-behavior: smooth; }
 
@@ -28,9 +28,6 @@ body, nav, section, footer, h1, h2, h3, p, a, span, button, input, textarea, div
   transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
-html.no-transition, html.no-transition * {
-  transition: none !important;
-}
 
 body {
   background: var(--cream);
@@ -49,17 +46,16 @@ body {
 .d3 { transition-delay: 0.3s; }
 
 /* Nav */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 3rem; background: rgba(255,248,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: background-color 0.4s ease, border-color 0.4s ease; }
+/* Translucent so the page shows through the blur, which is why this is a
+   literal rgba of --cream rather than the variable itself. */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 3rem; background: rgba(28,23,20,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: background-color 0.4s ease, border-color 0.4s ease; }
 nav.scrolled { border-color: var(--border); }
 .nav-logo { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--dark); text-decoration: none; }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
 .nav-links a:hover { color: var(--dark); }
 
-html.dark nav { background: rgba(28,23,20,0.95); }
 
-.theme-toggle { background: none; border: 1px solid var(--border); color: var(--muted); font-size: 14px; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; padding: 0; }
-.theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
 
 /* Hero */
 .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5rem 3rem 2rem; border-bottom: 1px solid var(--border); }
@@ -214,7 +210,6 @@ footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex;
   .nav-logo { font-size: 1rem; }
   .nav-links { gap: 1rem; }
   .nav-links a { font-size: 11px; letter-spacing: 0.02em; }
-  .theme-toggle { width: 28px; height: 28px; font-size: 12px; }
   .hero-name { white-space: normal; font-size: clamp(2rem, 10vw, 3rem); }
   .currently-row { flex-wrap: wrap; row-gap: 0.1rem; }
   .hide-mobile { display: none; }
