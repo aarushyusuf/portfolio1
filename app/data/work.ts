@@ -134,7 +134,7 @@ const published: WorkItem[] = [
     period: "Oct 2025 – Present",
     location: "Sheffield, UK",
     summary:
-      "Two roles across a solar race team: carbon fibre bodywork and SEM04 design work, following six iterations of battery casing design validated by FEA under a 20 g load case.",
+      "Two roles across a solar race team: carbon fibre bodywork and SEM03 design work, following six iterations of battery casing design validated by FEA under a 20 g load case.",
     tags: ["Fusion 360", "FEA", "Carbon Fibre", "CNC", "Aerodynamics", "Procurement"],
     emoji: "⚡",
     bg: "#EDE0D0",
