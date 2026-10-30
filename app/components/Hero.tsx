@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ProfilePhoto from "./ProfilePhoto";
 
 export default function Hero() {
@@ -40,12 +41,15 @@ export default function Hero() {
             </a>
           </div>
           <div className="currently-row" style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0" }}>
-            <span>Design Engineer</span>
-            <a href="https://www.linkedin.com/company/avros-rocketry" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none" }}>
-              <span className="hide-mobile">AVROS Rocketry</span>
-              <span className="show-mobile">AVROS</span>
+            {/* AVROS ended Sep 2026, so it is no longer "currently". The
+                quadcopter coursework replaces it; being internal, it links
+                to its own case study rather than off-site. */}
+            <span>Project Manager</span>
+            <Link href="/projects/quadcopter" style={{ color: "var(--gold)", textDecoration: "none" }}>
+              <span className="hide-mobile">Quadcopter UAS</span>
+              <span className="show-mobile">Quadcopter</span>
               {" ↗"}
-            </a>
+            </Link>
           </div>
           <div className="currently-row" style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "var(--dark)", padding: "0.2rem 0 0.75rem" }}>
             <span className="hide-mobile">Aerodynamics &amp; Mechanical Design</span>

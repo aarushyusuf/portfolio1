@@ -57,16 +57,20 @@ const published: WorkItem[] = [
     title: "Design Engineer at",
     titleEm: "AVROS Rocketry",
     short: "AVROS Rocketry",
-    meta: "Jul 2026 – Present",
+    meta: "Jul 2026 – Sep 2026",
     org: "AVROS Rocketry · Design Engineer",
     role: "Design Engineer",
-    period: "Jul 2026 – Present",
+    period: "Jul 2026 – Sep 2026",
     location: "United Kingdom",
     summary:
-      "Designing a safety-critical piston for the propellant pressurisation system of a reusable liquid rocket engine, including the O-ring gland sizing that has to hold at 500–800 psi.",
+      "Designed a safety-critical piston for the propellant pressurisation system of a reusable liquid rocket engine, including the O-ring gland sizing that had to hold at 500–800 psi.",
     tags: ["Onshape", "Liquid Propulsion", "O-Ring Design", "Hand Calculation", "Design Verification"],
     emoji: "🛰",
     bg: "#E6DFD2",
+    // An AVROS vehicle on the rail. Shot 3:4, so it is fitted whole inside the
+    // 4:3 frame with a blurred copy of itself filling the sides; the sky is
+    // uniform enough that the join barely reads. Already 4:3, no crop point.
+    images: ["/avros-launch.jpg"],
     // AVROS has no site of its own, so this points at the company page.
     link: { href: "https://www.linkedin.com/company/avros-rocketry", label: "AVROS Rocketry on LinkedIn →" },
     highlights: [
@@ -75,9 +79,9 @@ const published: WorkItem[] = [
       { value: "Safety", label: "critical component" },
     ],
     story: [
-      "I'm designing a safety-critical piston for the propellant pressurisation system of a reusable liquid rocket engine. Its job is to keep IPA and N2O physically separated inside the propellant tank assembly. If that separation fails, the two propellants meet somewhere they were never meant to.",
-      "The core of the design is the O-rings. I'm sizing it across squeeze factor, stretch and volumetric gland fill so it holds across a 500 to 800 psi range. Gland fill is the part with no room for error: overfill it and the O-ring has nowhere to displace to under pressure, underfill it and it leaks.",
-      "Every dimension starts as a hand calculation before it becomes parametric CAD in Onshape. It keeps the geometry driven by the numbers. I document the sizing process through structured calculation records, so every value traces back to the assumption behind it. That's what makes it possible to verify the design now and reuse the logic on the next iteration.",
+      "I designed a safety-critical piston for the propellant pressurisation system of a reusable liquid rocket engine. Its job is to keep IPA and N2O physically separated inside the propellant tank assembly. If that separation fails, the two propellants meet somewhere they were never meant to.",
+      "The core of the design is the O-rings. I sized them across squeeze factor, stretch and volumetric gland fill so they hold across a 500 to 800 psi range. Gland fill is the part with no room for error: overfill it and the O-ring has nowhere to displace to under pressure, underfill it and it leaks.",
+      "Every dimension started as a hand calculation before it became parametric CAD in Onshape. It kept the geometry driven by the numbers. I documented the sizing process through structured calculation records, so every value traces back to the assumption behind it. That's what makes it possible to verify the design and reuse the logic on the next iteration.",
     ],
   },
   {
@@ -86,10 +90,10 @@ const published: WorkItem[] = [
     title: "Project Lead,",
     titleEm: "UKSEDS NRC / The Named One",
     short: "The Named One",
-    meta: "Sep 2025 – Present",
+    meta: "Sep 2025 – Aug 2026",
     org: "UKSEDS National Rocketry Championship · Sheffield",
     role: "Project Lead",
-    period: "Sep 2025 – Present",
+    period: "Sep 2025 – Aug 2026",
     location: "Sheffield, UK",
     summary:
       "Led a 10-member rocketry team through the full lifecycle to a live launch reaching 1,700 ft apogee with real-time telemetry, then authored the post-flight failure analysis.",
@@ -152,6 +156,36 @@ const published: WorkItem[] = [
       "Before that I was a Powertrain Engineer. I took the battery casing through six versions in Fusion 360 to carry a 7.5 kg pack, trying L-bracket and fibreglass construction along the way. Every version went through static FEA against a 20 g load requirement. That's what validated the design we settled on: a 300 × 280 × 3 mm mild steel plate on six 12 mm rods.",
       "Inside a seven-person powertrain sub-team, I positioned and integrated the HV and VESC busbars. I machined the VESC heat sink myself on a CNC mill and a pillar drill.",
       "I also coordinated fit-up between the auxiliary battery, main battery and VESC units, and handled procurement of the mount plates.",
+    ],
+  },
+  {
+    slug: "quadcopter",
+    kind: "project",
+    title: "Project Manager,",
+    titleEm: "Quadcopter UAS",
+    short: "Quadcopter UAS",
+    meta: "Sep 2026 – Present",
+    org: "University of Sheffield · Coursework",
+    role: "Project Manager",
+    period: "Sep 2026 – Present",
+    location: "Sheffield, UK",
+    summary:
+      "Leading a 6-person team optimising a quadcopter UAS across its structure, propulsion and power systems against a customer Statement of Requirement, run through the CADMID lifecycle.",
+    tags: ["Project Management", "CADMID", "Requirements", "Gantt Charts", "Risk Register", "UAS"],
+    emoji: "🚁",
+    bg: "#E2DED6",
+    // Lab shots at the test enclosure. Both were shot 3:4 portrait, so each
+    // takes a horizontal 4:3 band: the first on the quad and the rig, the
+    // second wider. Already 4:3, so no crop points needed.
+    images: ["/quadcopter-1.jpg", "/quadcopter-2.jpg"],
+    highlights: [
+      { value: "6", label: "person team led" },
+      { value: "CADMID", label: "lifecycle followed" },
+      { value: "5 Box", label: "status reporting" },
+    ],
+    story: [
+      "I'm project manager for a six-person team optimising a quadcopter UAS across its structure, propulsion and power systems. The work runs against a customer Statement of Requirement, so what counts as finished isn't what we think is best, it's what the customer actually asked for.",
+      "We follow the CADMID lifecycle, and I own the planning side of it: the Statement of Work, the Gantt chart, the risk register, and 5 Box status reporting.",
     ],
   },
   {
@@ -237,10 +271,10 @@ const published: WorkItem[] = [
     title: "Drone Engineer Trainee at",
     titleEm: "HYPSTUMA",
     short: "HYPSTUMA",
-    meta: "Aug 2025",
+    meta: "Aug 2025 – Sep 2025",
     org: "HYPSTUMA · Drone Engineer Trainee",
     role: "Drone Engineer Trainee",
-    period: "August 2025",
+    period: "Aug 2025 – Sep 2025",
     location: "United Kingdom",
     summary:
       "Diagnosed a complete electrical failure on a 450 mm quadcopter to reverse polarity through three sequential elimination checks, identifying burnt MOSFETs from absent reverse current protection.",
@@ -269,10 +303,10 @@ const published: WorkItem[] = [
     title: "Aircraft Maintenance Trainee at",
     titleEm: "Sarsan Aviation Academy",
     short: "Sarsan Aviation",
-    meta: "Jul 2024",
+    meta: "Jul 2024 – Aug 2024",
     org: "Sarsan Aviation Academy · Dubai, UAE",
     role: "Aircraft Maintenance Trainee",
-    period: "July 2024",
+    period: "Jul 2024 – Aug 2024",
     location: "Dubai, UAE",
     summary:
       "Hands-on disassembly and reassembly of APU, turbofan, hydraulic, fuel and landing gear systems on decommissioned aircraft, going on to lead a 5-student team.",
@@ -320,6 +354,33 @@ const published: WorkItem[] = [
     story: [
       "For the Global Engineering Challenge, our six-person team designed ANVILS, short for Accurate Networked Vehicle Information Live Service. It's a UWB mesh network for real-time bus tracking across Sheffield's public transport network.",
       "The system reaches 17 cm positional accuracy, roughly 17.5× better than what current tracking systems achieve. I modelled TDoA positioning across 54 receiver nodes along Sheffield's Route 120 bus corridor.",
+    ],
+  },
+  {
+    slug: "glider",
+    kind: "project",
+    title: "Glider Project,",
+    titleEm: "Coursework",
+    short: "Glider Project",
+    meta: "Nov 2025 – May 2026",
+    org: "University of Sheffield · Coursework",
+    role: "Design & Scheduling",
+    period: "Nov 2025 – May 2026",
+    location: "Sheffield, UK",
+    summary:
+      "Designed the motor mount into the wing structure in Fusion 360 on a 5-person glider build, managed the team's scheduling, and authored the flight test report and lessons-learned log.",
+    tags: ["Fusion 360", "Gantt Charts", "Flight Testing", "Technical Writing"],
+    emoji: "🛫",
+    bg: "#E4E0D6",
+    highlights: [
+      { value: "5", label: "person team" },
+      { value: "Motor mount", label: "designed into the wing" },
+      { value: "Flight test", label: "report authored" },
+    ],
+    story: [
+      "A five-person team build. I designed the motor mount that carries into the wing structure, modelled in Fusion 360.",
+      "I built the Gantt chart and managed task scheduling across the team.",
+      "I also wrote the flight test report and the lessons-learned log, turning the group's test data into written technical findings. Writing it up is where you find out what you actually learned, as opposed to what you remember learning.",
     ],
   },
   {
@@ -377,6 +438,56 @@ const published: WorkItem[] = [
       "I competed in two engineering competitions at Emirates Aviation University.",
       "In the team drone-building challenge I programmed the drone using a gyroscope and BetaFlight, tuning the flight stability. The team placed 1st.",
       "In the water rocket challenge I balanced the rocket's centre of mass against its centre of pressure to keep the flight stable. The team placed 4th.",
+    ],
+  },
+  {
+    slug: "selsa",
+    kind: "extracurricular",
+    title: "SELSA,",
+    titleEm: "Engineering Leadership Award",
+    short: "SELSA",
+    meta: "Oct 2026 – Present",
+    org: "University of Sheffield · Faculty of Engineering",
+    role: "Selected participant",
+    period: "Oct 2026 – Present",
+    location: "Sheffield, UK",
+    summary:
+      "One of 60 students selected across the Faculty of Engineering, through a competitive process, for the Sheffield Engineering Leadership and Service Award: a two-year leadership programme.",
+    tags: ["Leadership", "Service", "Professional Development"],
+    emoji: "🎖",
+    bg: "#E8E2D6",
+    highlights: [
+      { value: "60", label: "students selected" },
+      { value: "2 years", label: "programme length" },
+    ],
+    story: [
+      "The Sheffield Engineering Leadership and Service Award is a two-year leadership programme run by the Faculty of Engineering. Sixty students are selected for it through a competitive process, and I'm one of them.",
+    ],
+  },
+  {
+    slug: "tutoring",
+    kind: "extracurricular",
+    title: "Chemistry & Physics Tutor,",
+    titleEm: "Freelance and Volunteering",
+    short: "Tutoring",
+    meta: "2023 – 2026",
+    org: "Freelance · Volunteering",
+    role: "Tutor",
+    period: "2023 – 2026",
+    location: "United Kingdom",
+    summary:
+      "Tutored A-Level Physics and Chemistry freelance, and volunteered on a 70,000-member study Discord, earning 782 reputation points awarded by students for helpful answers.",
+    tags: ["Teaching", "Physics", "Chemistry", "Communication"],
+    emoji: "📘",
+    bg: "#E6E0D8",
+    highlights: [
+      { value: "70,000", label: "member study server" },
+      { value: "782", label: "reputation points" },
+    ],
+    story: [
+      "I tutored A-Level Physics and Chemistry in person as a freelancer.",
+      "I also volunteered on a study Discord server of around 70,000 members, answering questions from students working through the same material. I earned 782 reputation points there, awarded by the students themselves for answers they found useful.",
+      "Explaining something to someone who is stuck is the fastest way to find the holes in your own understanding.",
     ],
   },
 ];
