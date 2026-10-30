@@ -170,8 +170,8 @@ const published: WorkItem[] = [
     period: "Sep 2026 – Present",
     location: "Sheffield, UK",
     summary:
-      "Leading a 6-person team optimising a quadcopter UAS across its structure, propulsion and power systems against a customer Statement of Requirement, run through the CADMID lifecycle.",
-    tags: ["Project Management", "CADMID", "Requirements", "Gantt Charts", "Risk Register", "UAS"],
+      "Leading a 6-person team to optimise a quadcopter UAS's structure, propulsion and power systems against a customer Statement of Requirement, with motor testing to size the battery and FEA on a 1 m drop case.",
+    tags: ["Project Management", "CADMID", "Requirements", "Motor Testing", "FEA", "Gantt Charts", "Risk Register"],
     emoji: "🚁",
     bg: "#E2DED6",
     // Lab shots at the test enclosure. Both were shot 3:4 portrait, so each
@@ -184,8 +184,10 @@ const published: WorkItem[] = [
       { value: "5 Box", label: "status reporting" },
     ],
     story: [
-      "I'm project manager for a six-person team optimising a quadcopter UAS across its structure, propulsion and power systems. The work runs against a customer Statement of Requirement, so what counts as finished isn't what we think is best, it's what the customer actually asked for.",
-      "We follow the CADMID lifecycle, and I own the planning side of it: the Statement of Work, the Gantt chart, the risk register, and 5 Box status reporting.",
+      "I'm leading a six-person team to optimise a quadcopter UAS's structure, propulsion and power systems against a customer Statement of Requirement, following the CADMID lifecycle.",
+      "I led the motor tests, running different propeller pitches and 2, 3 and 4-blade props and measuring current draw on each to size the battery.",
+      "I'm developing hand calculations and FEA to verify the arm survives a 1 m single-arm drop.",
+      "I manage the Statement of Work, Gantt chart, risk register and 5 Box status reporting.",
     ],
   },
   {
@@ -200,8 +202,8 @@ const published: WorkItem[] = [
     period: "July 2026",
     location: "Sheffield, UK",
     summary:
-      "Scratch-built a 600 mm fixed-wing RC aircraft and diagnosed a repeated in-flight structural failure to an aft CG at 60% MAC, correcting to 22% and achieving three consecutive controlled takeoffs.",
-    tags: ["Aircraft Design", "Flight Testing", "CG / MAC Analysis", "Datasheet Analysis", "Failure Analysis"],
+      "Scratch-built a 600 mm fixed-wing RC aircraft and traced a repeated in-flight structural failure to an aft CG at 60% chord, correcting to 22% and achieving three consecutive controlled takeoffs.",
+    tags: ["Aircraft Design", "Flight Testing", "CG Analysis", "Datasheet Analysis", "Failure Analysis"],
     emoji: "🛩",
     bg: "#E4DED0",
     // Runs design -> launch -> flight -> build. The CAD render leads because
@@ -217,12 +219,12 @@ const published: WorkItem[] = [
     imagePositions: ["center", "center 55%", "center", "center 45%"],
     highlights: [
       { value: "600 mm", label: "wingspan" },
-      { value: "60% → 22%", label: "MAC corrected" },
+      { value: "60% → 22%", label: "chord, CG corrected" },
       { value: "3", label: "consecutive takeoffs" },
       { value: "3", label: "iterative test cycles" },
     ],
     story: [
-      "I designed and scratch-built a 600 mm wingspan fixed-wing RC aircraft from component level up. I picked the motor, ESC and battery off datasheets rather than by guesswork. The setup I landed on draws 20.53 A, which is 68% of the battery's 30 A continuous ceiling, so there is real headroom instead of the pack running at its limit.",
+      "I designed a 600 mm wingspan RC plane in Fusion 360, built it, and flight-tested it. I selected the motor, ESC and battery combination through hand calculations. The setup draws 20.53 A, 68% of the battery's 30 A continuous rating.",
       "The first motor burned out. It was a prop-size mismatch. I was running a drone motor outside its thermal limit, because fixed-wing flight asks for sustained load in a way a quadcopter's duty cycle never does. I diagnosed it and corrected the pairing.",
       "Then it kept breaking in flight, the same way every time. It took three test cycles to work out why. Going through the flight video frame by frame put the centre of gravity at roughly 60% chord, against a safe range of 25 to 33%. That's badly aft, and it makes the aircraft violently pitch-unstable. I corrected it to 22% of the chord from the leading edge of the wing.",
       "Even after that it failed. I checked whether my hand-launch technique was contributing too, so I cross-referenced against a ground-roll takeoff on the same airframe, the same day, which had worked. Same aircraft, same conditions, different launch method, different outcome. That isolated hand-launch as its own failure variable rather than a symptom of the CG problem. The cause was high wing loading: hand-launch wasn't giving it enough speed for flight.",
@@ -262,7 +264,7 @@ const published: WorkItem[] = [
       "At Haqqathon 2026 at Imperial College London, a four-person multidisciplinary team I led built a myoelectric below-elbow prosthetic arm, aimed at amputees in conflict-affected and low-income communities.",
       "We organised the whole project around one constraint: unit cost. We got to £72 per unit, roughly 95% cheaper than commercial alternatives. That number mattered to me, because a prosthetic the person who needs it can't afford hasn't solved anything.",
       "I designed the full hand assembly in Fusion 360: a modular five-finger mechanism in ABS, parametrically fitted to stump geometry, with bolt-level replaceability throughout. When one finger fails, the user can replace just the finger.",
-      "We pitched to a judging panel at the end of the 24 hours and reached near-finalist stage. The feedback was about scaling logistics and print-time transparency. It was fair, and it named the real gap between a working prototype and something you can actually distribute at volume.",
+      "We pitched to a judging panel at the end of the 24 hours and reached near-finalist stage. The feedback was about scaling logistics and print-time transparency. It was fair. There is a real gap between a working prototype and something you can distribute at volume.",
     ],
   },
   {
@@ -277,7 +279,7 @@ const published: WorkItem[] = [
     period: "Aug 2025 – Sep 2025",
     location: "United Kingdom",
     summary:
-      "Diagnosed a complete electrical failure on a 450 mm quadcopter to reverse polarity through three sequential elimination checks, identifying burnt MOSFETs from absent reverse current protection.",
+      "Burnt out a 450 mm quadcopter I built from a kit by connecting the battery in reverse polarity, then traced it through three elimination checks to burnt MOSFETs on a board with no reverse-current protection.",
     tags: ["Fault Finding", "Multimeter", "MOSFETs", "Electronics", "Root Cause Analysis"],
     emoji: "🔌",
     bg: "#E0DCD2",
@@ -357,33 +359,6 @@ const published: WorkItem[] = [
     ],
   },
   {
-    slug: "glider",
-    kind: "project",
-    title: "Glider Project,",
-    titleEm: "Coursework",
-    short: "Glider Project",
-    meta: "Nov 2025 – May 2026",
-    org: "University of Sheffield · Coursework",
-    role: "Design & Scheduling",
-    period: "Nov 2025 – May 2026",
-    location: "Sheffield, UK",
-    summary:
-      "Designed the motor mount into the wing structure in Fusion 360 on a 5-person glider build, managed the team's scheduling, and authored the flight test report and lessons-learned log.",
-    tags: ["Fusion 360", "Gantt Charts", "Flight Testing", "Technical Writing"],
-    emoji: "🛫",
-    bg: "#E4E0D6",
-    highlights: [
-      { value: "5", label: "person team" },
-      { value: "Motor mount", label: "designed into the wing" },
-      { value: "Flight test", label: "report authored" },
-    ],
-    story: [
-      "A five-person team build. I designed the motor mount that carries into the wing structure, modelled in Fusion 360.",
-      "I built the Gantt chart and managed task scheduling across the team.",
-      "I also wrote the flight test report and the lessons-learned log, turning the group's test data into written technical findings. Writing it up is where you find out what you actually learned, as opposed to what you remember learning.",
-    ],
-  },
-  {
     slug: "pcb-design",
     kind: "project",
     title: "PCB Design,",
@@ -438,56 +413,6 @@ const published: WorkItem[] = [
       "I competed in two engineering competitions at Emirates Aviation University.",
       "In the team drone-building challenge I programmed the drone using a gyroscope and BetaFlight, tuning the flight stability. The team placed 1st.",
       "In the water rocket challenge I balanced the rocket's centre of mass against its centre of pressure to keep the flight stable. The team placed 4th.",
-    ],
-  },
-  {
-    slug: "selsa",
-    kind: "extracurricular",
-    title: "SELSA,",
-    titleEm: "Engineering Leadership Award",
-    short: "SELSA",
-    meta: "Oct 2026 – Present",
-    org: "University of Sheffield · Faculty of Engineering",
-    role: "Selected participant",
-    period: "Oct 2026 – Present",
-    location: "Sheffield, UK",
-    summary:
-      "One of 60 students selected across the Faculty of Engineering, through a competitive process, for the Sheffield Engineering Leadership and Service Award: a two-year leadership programme.",
-    tags: ["Leadership", "Service", "Professional Development"],
-    emoji: "🎖",
-    bg: "#E8E2D6",
-    highlights: [
-      { value: "60", label: "students selected" },
-      { value: "2 years", label: "programme length" },
-    ],
-    story: [
-      "The Sheffield Engineering Leadership and Service Award is a two-year leadership programme run by the Faculty of Engineering. Sixty students are selected for it through a competitive process, and I'm one of them.",
-    ],
-  },
-  {
-    slug: "tutoring",
-    kind: "extracurricular",
-    title: "Chemistry & Physics Tutor,",
-    titleEm: "Freelance and Volunteering",
-    short: "Tutoring",
-    meta: "2023 – 2026",
-    org: "Freelance · Volunteering",
-    role: "Tutor",
-    period: "2023 – 2026",
-    location: "United Kingdom",
-    summary:
-      "Tutored A-Level Physics and Chemistry freelance, and volunteered on a 70,000-member study Discord, earning 782 reputation points awarded by students for helpful answers.",
-    tags: ["Teaching", "Physics", "Chemistry", "Communication"],
-    emoji: "📘",
-    bg: "#E6E0D8",
-    highlights: [
-      { value: "70,000", label: "member study server" },
-      { value: "782", label: "reputation points" },
-    ],
-    story: [
-      "I tutored A-Level Physics and Chemistry in person as a freelancer.",
-      "I also volunteered on a study Discord server of around 70,000 members, answering questions from students working through the same material. I earned 782 reputation points there, awarded by the students themselves for answers they found useful.",
-      "Explaining something to someone who is stuck is the fastest way to find the holes in your own understanding.",
     ],
   },
 ];
